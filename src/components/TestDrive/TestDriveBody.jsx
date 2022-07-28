@@ -4,7 +4,7 @@ import { SelectDate } from './SelectDate';
 import { SelectTime } from './SelectTime';
 import {TestDriveActions} from "./TestDriveActions"
 
-export const TestDriveBody = () => {
+export const TestDriveBody = ({setHeader}) => {
     const [component,setComponent] = useState(<SelectCar/>);
     const [buttonText, setButtonText] = useState("Select Dates");
     const [selectedDate, setSelectedDate] = useState(null);
@@ -13,9 +13,12 @@ export const TestDriveBody = () => {
         if (date) {
             setSelectedDate(date)
             setComponent(<SelectTime handleSelectDate={handleSelectDate} selectedDate={date}/>)
+            setHeader("Select appropiate time for your test drive")
         } else {
             setSelectedDate(null)
             setComponent(<SelectDate handleSelectDate={handleSelectDate} />)
+            setHeader("Select appropiate date for your test drive")
+
         }
 
     }
@@ -24,6 +27,7 @@ export const TestDriveBody = () => {
         if (buttonText === "Select Dates") {
             setButtonText("Select Time")
             setComponent(<SelectDate handleSelectDate={handleSelectDate} />)
+            setHeader("Select appropiate date for your test drive")
         }
     }
 
