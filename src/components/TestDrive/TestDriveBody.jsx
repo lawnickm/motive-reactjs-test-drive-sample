@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SelectCar } from './SelectCar';
 import { SelectDate } from './SelectDate';
-
+import { SelectTime } from './SelectTime';
 import {TestDriveActions} from "./TestDriveActions"
 
 export const TestDriveBody = () => {
@@ -10,8 +10,13 @@ export const TestDriveBody = () => {
     const [selectedDate, setSelectedDate] = useState(null);
 
     const handleSelectDate = (date) => {
-        console.log(date)
-        setSelectedDate(date)
+        if (date) {
+            setSelectedDate(date)
+            setComponent(<SelectTime handleSelectDate={handleSelectDate} selectedDate={date}/>)
+        } else {
+            setSelectedDate(null)
+            setComponent(<SelectDate handleSelectDate={handleSelectDate} />)
+        }
 
     }
 
@@ -19,12 +24,7 @@ export const TestDriveBody = () => {
         if (buttonText === "Select Dates") {
             setButtonText("Select Time")
             setComponent(<SelectDate handleSelectDate={handleSelectDate} />)
-        } else if (buttonText === "Select Time"){
-            setButtonText("Submit")
-        } else {
-            setButtonText("Select Dates")
         }
-
     }
 
     return(

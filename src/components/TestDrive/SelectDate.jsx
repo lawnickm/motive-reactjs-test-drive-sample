@@ -1,12 +1,6 @@
 import React from 'react';
 
-const monthNames = ["January", "February", "March", "April", "May", "June",
-"July", "August", "September", "October", "November", "December"
-];
-
-const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-"Saturday"
-];
+import {monthNames, dayNames} from "../constants/DateNames"
 
 export const SelectDate = ({handleSelectDate}) => {
     var startDate = new Date();
