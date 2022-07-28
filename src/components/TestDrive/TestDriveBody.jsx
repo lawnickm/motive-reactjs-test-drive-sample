@@ -1,40 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SelectCar } from './SelectCar';
 import { SelectDate } from './SelectDate';
 import { SelectTime } from './SelectTime';
-import {TestDriveActions} from "./TestDriveActions"
 
-export const TestDriveBody = ({setHeader}) => {
-    const [component,setComponent] = useState(<SelectCar/>);
-    const [buttonText, setButtonText] = useState("Select Dates");
-    const [selectedDate, setSelectedDate] = useState(null);
+export const TestDriveBody = ({setHeader, setCarInfo}) => {
+    const [component,setComponent] = useState(null);
 
     const handleSelectDate = (date) => {
         if (date) {
-            setSelectedDate(date)
             setComponent(<SelectTime handleSelectDate={handleSelectDate} selectedDate={date}/>)
-            setHeader("Select appropiate time for your test drive")
+            setHeader(<h4> Select <strong>Time</strong> for your test drive with:</h4>)
         } else {
-            setSelectedDate(null)
             setComponent(<SelectDate handleSelectDate={handleSelectDate} />)
-            setHeader("Select appropiate date for your test drive")
-
+            setHeader(<h4> Select <strong>Date</strong> for your test drive with: </h4>)
         }
-
     }
 
     const handleChangeComponent = () => {
-        if (buttonText === "Select Dates") {
-            setButtonText("Select Time")
-            setComponent(<SelectDate handleSelectDate={handleSelectDate} />)
-            setHeader("Select appropiate date for your test drive")
-        }
+        setComponent(<SelectDate handleSelectDate={handleSelectDate} />)
+        setHeader(<h4> Select <strong>Date</strong> for your test drive with: </h4>)
     }
+
+    useEffect(()=>{
+        setComponent(<SelectCar setCarInfo={setCarInfo} handleChangeComponent={handleChangeComponent}/>)
+    },[])
 
     return(
         <div className='test-drive-body'>
             {component}
-            <TestDriveActions button={buttonText} buttonClicked={handleChangeComponent}/>
         </div>
     );
 };
