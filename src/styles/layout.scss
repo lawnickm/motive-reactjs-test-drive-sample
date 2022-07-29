@@ -26,6 +26,14 @@
         width: calc(100vw - 80px);
         padding: 20px;
     }
+    @media screen and (max-width: 380px) {
+        width: calc(100vw - 60px);
+        padding: 10px;
+    }
+}
+
+.test-drive-main-back-button{
+    position: absolute;
 }
 
 .test-drive-body{
@@ -112,16 +120,34 @@
 }
 
 .test-drive-confirmation-page{
-    max-width: 400px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 75vw;
+    max-width: 400px;
+    height: 300px;
 
     margin: auto;
     margin-top: 10px;
-    padding: 20px;
+    padding: 10px;
 
     .test-drive-confirmation-page-labels{
         display: flex;
         justify-content: start;
         gap:10px;
         padding-left: 20px;
+        margin-bottom: 10px;
+    }
+    @media screen and (max-width: 380px) {
+        justify-content: flex-start;
+        text-align: left;
+        width: 65vw;
+        margin: auto;
+
+        .test-drive-confirmation-page-labels{
+            flex-direction: column;
+            padding-left: 0 ;
+        }
     }
 }

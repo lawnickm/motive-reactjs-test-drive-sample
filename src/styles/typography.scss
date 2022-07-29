@@ -19,11 +19,20 @@
 .test-drive-confirmation-page{
     .test-drive-confirmation-page-labels{
         p {
-            margin-bottom: 20px;
             font-size: 16px;
         }
+        @media screen and (max-width: 380px) {
+            p {
+                font-size: 14px;
+            }
+        }
     }
-    h3{
-        margin: 20px;
+    h5{
+        margin: 20px 0;
     }
+}
+
+.test-drive-main-back-button{
+    font-size: 36px;
+    line-height: 40px;
 }

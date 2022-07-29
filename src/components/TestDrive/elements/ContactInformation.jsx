@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
-import { formatDate } from "../../../helpers/utilities";
+import { formatDate , phoneNumberIsValid} from "../../../helpers/utilities";
 
 export const ContactInformation = ({
   setLoading,
-  handleConfirmation,
-  handleSelectDate,
-  handleSelectTime,
+  handleChangeComponent,
   selectedDate,
   selectedTime
 }) => {
@@ -17,14 +15,17 @@ export const ContactInformation = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    let formattedDate = formatDate(selectedDate)
-    const info = { firstName, lastName, email, phone, formattedDate, selectedTime};
-    console.log(info);
-    setTimeout(() => {
-      setLoading(false);
-      handleConfirmation(info);
-    }, 600);
+    if (phoneNumberIsValid(phone)) {
+      setLoading(true);
+      let formattedDate = formatDate(selectedDate)
+      const info = { firstName, lastName, email, phone, formattedDate, selectedTime};
+      setTimeout(() => {
+        setLoading(false);
+        handleChangeComponent(4,{"info":info});
+      }, 800);
+    } else {
+      alert("Phone number is not valid.")
+    }
   };
 
   return (
