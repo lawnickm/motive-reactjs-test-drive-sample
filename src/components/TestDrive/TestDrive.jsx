@@ -3,7 +3,7 @@ import {TestDriveHeader} from "./TestDriveHeader"
 import { TestDriveBody } from './TestDriveBody';
 
 export const TestDrive = () => {
-    const [header,setHeader] = useState("Schedule a flexible test drive")
+    const [header,setHeader] = useState(<h4>Schedule a flexible <strong>test drive</strong></h4>)
     const [carInfo, setCarInfo] = useState(null)
 
     return(

@@ -4,7 +4,10 @@ import {monthNames, dayNames} from "../constants/DateNames"
 
 export const SelectDate = ({handleSelectDate}) => {
     var startDate = new Date();
+    startDate.setHours(0, 0, 0, 0);
+    
     var endDate = new Date();
+    endDate.setHours(0, 0, 0, 0);
     endDate.setDate(endDate.getDate() + 14)
 
     const dates = [];

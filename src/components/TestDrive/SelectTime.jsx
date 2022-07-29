@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import {monthNames, dayNames} from "../constants/DateNames"
 
-export const SelectTime = ({handleSelectDate, selectedDate}) => {
+export const SelectTime = ({handleSelectDate, handleSelectTime, selectedDate}) => {
     const [hours,setHours] = useState([])
 
     useEffect(()=>{
         let tempHours = []
         for (let i = 9; i <= 17; i++){
-            let time = (i%12).toString() + ":00 " + ((i>12)? "pm":"am")
+
+            let extra = ((i>12)? "pm":"am")
+            let hour = (i%12)==0? i : (i%12);
+
+            let time = hour.toString() + ":00 " + extra
             tempHours.push(time)
-            time = (i%12).toString() + ":30 " + ((i>12)? "pm":"am")
-            tempHours.push(time)
+            if (i != 17) {
+                time = hour.toString() + ":30 " + extra
+                tempHours.push(time)
+            }
+
         }
         setHours(tempHours)
     },[])
 
-    console.log(hours)
     return(
         <div className='test-drive-body-select-date select-time'>
             <div onClick={() => handleSelectDate(null)} className='test-drive-body-dates'>
@@ -25,7 +31,7 @@ export const SelectTime = ({handleSelectDate, selectedDate}) => {
             </div>
             <div className='test-drive-body-select-times'>
                 {hours.map((item,index)=>(
-                    <div onClick={null} className='test-drive-body-dates select-times'>
+                    <div onClick={()=>handleSelectTime(item,selectedDate)} className='test-drive-body-dates select-times'>
                         <p key={index}>{item}</p>
                     </div>
                 ))}
