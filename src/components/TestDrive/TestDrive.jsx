@@ -28,6 +28,7 @@ export const TestDrive = () => {
     setProps(keys)
     if (page === 0) {
       setBackward(false);
+      setCarInfo(null)
       setComponent(
         <SelectCar
           setLoading={setLoading}
@@ -70,6 +71,7 @@ export const TestDrive = () => {
       setComponent(
         <Confirmation
           info={keys.info}
+          handleChangeComponent={handleChangeComponent}
         />
       );
       setHeader( <h4> <strong>Congratulations!</strong> <br></br> You have scheduled a test drive! </h4> );
