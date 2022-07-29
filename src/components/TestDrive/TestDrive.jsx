@@ -31,7 +31,6 @@ export const TestDrive = () => {
       setCarInfo(null)
       setComponent(
         <SelectCar
-          setLoading={setLoading}
           setCarInfo={setCarInfo}
           handleChangeComponent={handleChangeComponent}
         />
@@ -49,7 +48,6 @@ export const TestDrive = () => {
       setBackward(true);
       setComponent(
         <SelectTime
-          setLoading={setLoading}
           selectedDate={keys.date}
           handleChangeComponent={handleChangeComponent}
         />

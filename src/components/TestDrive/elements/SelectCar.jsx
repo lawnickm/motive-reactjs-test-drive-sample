@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const SelectCar = ({ setLoading, setCarInfo, buttonText, handleChangeComponent }) => {
+export const SelectCar = ({ setCarInfo, handleChangeComponent }) => {
     const [make, setMake] = useState("Volvo");
     const [model, setModel] = useState("XC90");
     const [year, setYear] = useState("2022");
