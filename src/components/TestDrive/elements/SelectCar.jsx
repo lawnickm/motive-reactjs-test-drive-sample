@@ -6,12 +6,11 @@ export const SelectCar = ({ setLoading, setCarInfo, buttonText, handleChangeComp
     const [year, setYear] = useState("2022");
     const [trim, setTrim] = useState("Black");
 
-
     const handleFormSubmit = (e) => {
         e.preventDefault()
         const carInfomation = {make, model, year, trim};
         setCarInfo(carInfomation)
-        handleChangeComponent()
+        handleChangeComponent(1)
     }
 
     return (
