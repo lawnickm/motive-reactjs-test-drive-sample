@@ -44,7 +44,7 @@ export const TestDrive = () => {
           handleChangeComponent={handleChangeComponent} 
         />
       );
-      setHeader(<h4>Select <strong>Date</strong> for your test drive with:</h4>);
+      setHeader(<h4>Select <strong>Date</strong></h4>);
     } else if (page === 2) {
       setBackward(true);
       setComponent(
@@ -54,7 +54,7 @@ export const TestDrive = () => {
           handleChangeComponent={handleChangeComponent}
         />
       );
-      setHeader(<h4>Select <strong>Time</strong> for your test drive with:</h4>);
+      setHeader(<h4>Select <strong>Time</strong></h4>);
     } else if (page === 3) {
       setBackward(true);
       setComponent(
