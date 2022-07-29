@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { formatDate } from "../constants/utilities";
+import { formatDate } from "../../../helpers/utilities";
 
 export const ContactInformation = ({
   setLoading,

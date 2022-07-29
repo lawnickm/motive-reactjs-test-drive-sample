@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { SelectCar } from "./SelectCar";
-import { SelectDate } from "./SelectDate";
-import { SelectTime } from "./SelectTime";
-import { ContactInformation } from "./ContactInformation";
-import { Confirmation } from "./Confirmation";
+import { SelectCar } from "../elements/SelectCar";
+import { SelectDate } from "../elements/SelectDate";
+import { SelectTime } from "../elements/SelectTime";
+import { ContactInformation } from "../elements/ContactInformation";
+import { Confirmation } from "../elements/Confirmation";
 
 import { useTransition, animated } from "react-spring";
 

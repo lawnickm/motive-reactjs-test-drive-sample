@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { TestDriveHeader } from "./TestDriveHeader";
-import { TestDriveBody } from "./TestDriveBody";
-import { LoadingScreen } from "./LoadingScreen";
+import { TestDriveHeader } from "./layouts/TestDriveHeader";
+import { TestDriveBody } from "./layouts/TestDriveBody";
+import { LoadingScreen } from "./partials/LoadingScreen";
 
 export const TestDrive = () => {
   const [header, setHeader] = useState(

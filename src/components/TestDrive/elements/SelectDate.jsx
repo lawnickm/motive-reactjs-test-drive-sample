@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {monthNames, dayNames} from "../constants/utilities"
+import {monthNames, dayNames} from "../../../helpers/utilities";
 
 export const SelectDate = ({handleSelectDate}) => {
     var startDate = new Date();

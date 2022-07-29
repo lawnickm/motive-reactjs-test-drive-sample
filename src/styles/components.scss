@@ -1,0 +1,24 @@
+.test-drive-main{
+    border-radius: $main-radius;
+    box-shadow: $main-shadow;
+    background-color: $secondary-color;
+}
+
+.test-drive-body-select-date{
+    .test-drive-body-dates{
+        cursor: pointer;
+
+        border: 1px solid $text-color-2;
+        border-radius: $main-radius;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            border: 1px solid $contrast-color;
+        }
+    }
+}
+
+.test-drive-confirmation-page{
+    background-color: $primary-color;
+    border-radius: $main-radius;
+}
