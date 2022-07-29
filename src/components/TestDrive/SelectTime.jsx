@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {monthNames, dayNames} from "../constants/DateNames"
+import {monthNames, dayNames} from "../constants/utilities"
 
 export const SelectTime = ({handleSelectDate, handleSelectTime, selectedDate}) => {
     const [hours,setHours] = useState([])

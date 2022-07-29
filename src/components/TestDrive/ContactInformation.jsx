@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-import { formatDate } from "../constants/DateNames";
+import { formatDate } from "../constants/utilities";
 
 export const ContactInformation = ({
+  setLoading,
   handleSelectDate,
   handleSelectTime,
   selectedDate,
@@ -15,9 +16,13 @@ export const ContactInformation = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     let formattedDate = formatDate(selectedDate)
     const info = { firstName, lastName, email, phone, formattedDate, selectedTime};
     console.log(info);
+    setTimeout(() => {
+      setLoading(false)
+    }, 600);
   };
 
   return (
