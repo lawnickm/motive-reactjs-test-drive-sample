@@ -6,7 +6,7 @@ import { ContactInformation } from "./ContactInformation";
 
 import { useTransition, animated } from "react-spring";
 
-export const TestDriveBody = ({ setHeader, setCarInfo }) => {
+export const TestDriveBody = ({setLoading, setHeader, setCarInfo }) => {
   const [component, setComponent] = useState(null);
 
   const transition = useTransition(component, {
@@ -18,6 +18,7 @@ export const TestDriveBody = ({ setHeader, setCarInfo }) => {
     if (date) {
       setComponent(
         <SelectTime
+          setLoading={setLoading}
           handleSelectDate={handleSelectDate}
           handleSelectTime={handleSelectTime}
           selectedDate={date}
@@ -29,7 +30,7 @@ export const TestDriveBody = ({ setHeader, setCarInfo }) => {
         </h4>
       );
     } else {
-      setComponent(<SelectDate handleSelectDate={handleSelectDate} />);
+      setComponent(<SelectDate setLoading={setLoading} handleSelectDate={handleSelectDate} />);
       setHeader(
         <h4>
           Select <strong>Date</strong> for your test drive with:{" "}
@@ -42,6 +43,7 @@ export const TestDriveBody = ({ setHeader, setCarInfo }) => {
     if (time) {
       setComponent(
         <ContactInformation
+          setLoading={setLoading}
           handleSelectDate={handleSelectDate}
           handleSelectTime={handleSelectTime}
           selectedDate={date}
@@ -55,7 +57,7 @@ export const TestDriveBody = ({ setHeader, setCarInfo }) => {
       );
     } else {
       setComponent(
-        <SelectTime handleSelectDate={handleSelectDate} selectedDate={date} />
+        <SelectTime setLoading={setLoading} handleSelectDate={handleSelectDate} selectedDate={date} />
       );
       setHeader(
         <h4>
@@ -69,7 +71,6 @@ export const TestDriveBody = ({ setHeader, setCarInfo }) => {
     setComponent(<SelectDate handleSelectDate={handleSelectDate} />);
     setHeader(
       <h4>
-        {" "}
         Select <strong>Date</strong> for your test drive with:{" "}
       </h4>
     );
@@ -78,6 +79,7 @@ export const TestDriveBody = ({ setHeader, setCarInfo }) => {
   useEffect(() => {
     setComponent(
       <SelectCar
+        setLoading={setLoading}
         setCarInfo={setCarInfo}
         handleChangeComponent={handleChangeComponent}
       />
