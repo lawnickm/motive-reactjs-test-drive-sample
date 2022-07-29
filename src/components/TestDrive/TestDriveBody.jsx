@@ -3,6 +3,7 @@ import { SelectCar } from "./SelectCar";
 import { SelectDate } from "./SelectDate";
 import { SelectTime } from "./SelectTime";
 import { ContactInformation } from "./ContactInformation";
+import { Confirmation } from "./Confirmation";
 
 import { useTransition, animated } from "react-spring";
 
@@ -13,6 +14,15 @@ export const TestDriveBody = ({setLoading, setHeader, setCarInfo }) => {
     from: { x: 400, opacity: 0 },
     enter: { x: 0, opacity: 1 },
   });
+
+  const handleConfirmation = (info) => {
+    setComponent(<Confirmation info={info}/>)
+    setHeader(
+      <h4>
+        <strong>Congratulations!</strong> <br></br> You have scheduled a test drive!
+      </h4>
+    );
+  };
 
   const handleSelectDate = (date) => {
     if (date) {
@@ -44,6 +54,7 @@ export const TestDriveBody = ({setLoading, setHeader, setCarInfo }) => {
       setComponent(
         <ContactInformation
           setLoading={setLoading}
+          handleConfirmation={handleConfirmation}
           handleSelectDate={handleSelectDate}
           handleSelectTime={handleSelectTime}
           selectedDate={date}

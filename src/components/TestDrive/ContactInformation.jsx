@@ -4,6 +4,7 @@ import { formatDate } from "../constants/utilities";
 
 export const ContactInformation = ({
   setLoading,
+  handleConfirmation,
   handleSelectDate,
   handleSelectTime,
   selectedDate,
@@ -21,7 +22,8 @@ export const ContactInformation = ({
     const info = { firstName, lastName, email, phone, formattedDate, selectedTime};
     console.log(info);
     setTimeout(() => {
-      setLoading(false)
+      setLoading(false);
+      handleConfirmation(info);
     }, 600);
   };
 
