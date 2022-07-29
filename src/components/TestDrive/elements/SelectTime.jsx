@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {monthNames, dayNames} from "../constants/utilities"
+import {monthNames, dayNames} from "../../../helpers/utilities";
 
 export const SelectTime = ({handleSelectDate, handleSelectTime, selectedDate}) => {
     const [hours,setHours] = useState([])
@@ -24,7 +24,7 @@ export const SelectTime = ({handleSelectDate, handleSelectTime, selectedDate}) =
 
     return(
         <div className='test-drive-body-select-date select-time'>
-            <div onClick={() => handleSelectDate(null)} className='test-drive-body-dates'>
+            <div onClick={() => handleSelectDate(null)} className='test-drive-body-dates active'>
                 <p key={1}>{dayNames[selectedDate.getDay()]}</p>
                 <p key={2}>{selectedDate.getDate()}</p>
                 <p key={3}>{monthNames[selectedDate.getMonth()]}</p>
