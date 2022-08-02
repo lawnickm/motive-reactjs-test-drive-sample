@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { monthNames, dayNames } from "../../../helpers/utilities";
+import { generateHours, monthNames, dayNames } from "../../../helpers/utilities";
 
 export const SelectTime = ({ handleChangeComponent, selectedDate }) => {
   const [hours, setHours] = useState([]);
 
   useEffect(() => {
-    let tempHours = [];
-    for (let i = 9; i <= 17; i++) {
-      let extra = i > 12 ? "pm" : "am";
-      let hour = i % 12 == 0 ? i : i % 12;
-
-      let time = hour.toString() + ":00 " + extra;
-      tempHours.push(time);
-      if (i != 17) {
-        time = hour.toString() + ":30 " + extra;
-        tempHours.push(time);
-      }
-    }
-    setHours(tempHours);
-  }, []);
+    if (selectedDate) setHours(generateHours(selectedDate));
+  }, [selectedDate]);
 
   return (
     <div className="test-drive-body-select-date select-time">

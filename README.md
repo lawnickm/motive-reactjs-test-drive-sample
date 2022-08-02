@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installed Packages
+
+node-sass 7.0.1
+react-spring 9.5.2
+
 ## Available Scripts
 
 In the project directory, you can run:

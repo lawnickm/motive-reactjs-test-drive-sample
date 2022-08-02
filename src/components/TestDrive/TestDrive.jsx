@@ -23,7 +23,6 @@ export const TestDrive = () => {
 
   
   const handleChangeComponent = (page, keys=null) => {
-    console.log(keys)
     setPageNumer(page)
     setProps(keys)
     if (page === 0) {
