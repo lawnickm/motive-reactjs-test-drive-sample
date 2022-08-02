@@ -4,7 +4,7 @@ import { useTransition, animated } from "react-spring";
 
 export const TestDriveBody = ({
   component,
-  handleChangeComponent,
+  setPageNumber,
 }) => {
   const transition = useTransition(component, {
     from: { x: 400, opacity: 0 },
@@ -12,7 +12,7 @@ export const TestDriveBody = ({
   });
 
   useEffect(() => {
-    handleChangeComponent(0)
+    setPageNumber(0)
   }, []);
 
   return (

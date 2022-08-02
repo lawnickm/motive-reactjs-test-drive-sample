@@ -16,82 +16,76 @@ export const TestDrive = () => {
   );
   const [carInfo, setCarInfo] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [backwards, setBackward] = useState(false);
   const [component, setComponent] = useState(null);
-  const [props, setProps] = useState(null);
-  const [pageNumber,setPageNumer] = useState(0);
-  
-  const handleChangeComponent = (page, keys=null) => {
-    setPageNumer(page)
-    setProps(keys)
-    if (page === 0) {
-      setBackward(false);
+  const [pageNumber,setPageNumber] = useState(0);
+  const [contactInfo, setContactInfo] = useState(null);
+  const [dateInfo, setDateInfo] = useState(null);
+  const [timeInfo, setTimeInfo] = useState(null);
+
+  useEffect(() => {
+    if (pageNumber === 0) {
       setComponent(
         <ContactInformation
-          handleChangeComponent={handleChangeComponent}
+        setPageNumber={setPageNumber}
+        setContactInfo={setContactInfo}
         />
       );
       setHeader(<h4><strong>Contact</strong> Information</h4>);
     } 
-    else if (page === 1) {
-
-      setBackward(true);
+    else if (pageNumber === 1) {
       setCarInfo(null)
       setComponent(
         <SelectCar
-          contactInfo={keys.info}
+        setPageNumber={setPageNumber}
           setCarInfo={setCarInfo}
-          handleChangeComponent={handleChangeComponent}
         />
       );
       setHeader(<h4>Schedule a flexible <strong>test drive</strong></h4>);
-    } else if (page === 2) {
-      setBackward(true);
+    } else if (pageNumber === 2) {
       setComponent(
         <SelectDate 
-          contactInfo={keys.info}
-          handleChangeComponent={handleChangeComponent} 
+        setPageNumber={setPageNumber}
+          setDateInfo={setDateInfo}
         />
       );
       setHeader(<h4>Select <strong>Date</strong></h4>);
-    } else if (page === 3) {
-      setBackward(true);
+    } else if (pageNumber === 3) {
       setComponent(
         <SelectTime
+        setPageNumber={setPageNumber}
           setLoading={setLoading}
-          contactInfo={keys.info}
-          selectedDate={keys.date}
-          handleChangeComponent={handleChangeComponent}
+          setDateInfo={setDateInfo}
+          setTimeInfo={setTimeInfo}
+          selectedDate={dateInfo}
         />
       );
       setHeader(<h4>Select <strong>Time</strong></h4>);
-    } else if (page === 4) {
-      setBackward(false);
+    } else if (pageNumber === 4) {
       setComponent(
         <Confirmation
-          info={keys.info}
-          handleChangeComponent={handleChangeComponent}
+        setPageNumber={setPageNumber}
+          contactInfo={contactInfo}
+          selectedDate={dateInfo}
+          selectedTime={timeInfo}
         />
       );
       setHeader( <h4> <strong>Congratulations!</strong> <br></br> You have scheduled a test drive! </h4> );
     }
-  };
+  }, [pageNumber])
   
   return (
     <div className="test-drive-main">
       {loading ? <LoadingScreen /> : null}
       <>
         <TestDriveHeader
-          backwards={backwards}
           header={header}
           carInfo={carInfo}
-          props={props}
           pageNumber={pageNumber}
-          handleChangeComponent={handleChangeComponent}
+          setPageNumber={setPageNumber}
         />
         <TestDriveBody
           component={component}
-          handleChangeComponent={handleChangeComponent}
+          setPageNumber={setPageNumber}
         />
       </>
     </div>

@@ -1,18 +1,16 @@
 import React from "react";
 
 export const TestDriveHeader = ({
-  backwards,
-  handleChangeComponent,
+  setPageNumer,
   pageNumber,
-  props,
   header,
   carInfo = null,
 }) => {
   return (
     <div className="test-drive-main-header">
-      {backwards ? (
+      {pageNumber != 0 ? (
         <span
-          onClick={() => handleChangeComponent(pageNumber - 1, props)}
+          onClick={() => setPageNumer(pageNumber - 1)}
           className="test-drive-main-back-button"
         >
           {"<"}

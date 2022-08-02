@@ -1,9 +1,16 @@
 import React from "react";
+import { formatDate } from "../../../helpers/utilities";
 
-export const Confirmation = ({ info, handleChangeComponent }) => {
+export const Confirmation = ({
+  setPageNumber,
+  contactInfo,
+  selectedDate,
+  selectedTime,
+}) => {
+
   return (
     <>
-      {info ? (
+      {contactInfo && selectedDate && selectedTime ? (
         <>
           <div className="test-drive-confirmation-page">
             <h5>Appointment Details</h5>
@@ -11,29 +18,34 @@ export const Confirmation = ({ info, handleChangeComponent }) => {
               <p>
                 <strong>Name: </strong>
               </p>
-              <p>{info.contactInfo.firstName + " " + info.contactInfo.lastName}</p>
+              <p>
+                {contactInfo.firstName + " " + contactInfo.lastName}
+              </p>
             </div>
             <div className="test-drive-confirmation-page-labels">
               <p>
                 <strong>Email: </strong>
               </p>
-              <p>{info.contactInfo.email}</p>
+              <p>{contactInfo.email}</p>
             </div>
             <div className="test-drive-confirmation-page-labels">
               <p>
                 <strong>Phone: </strong>
               </p>
-              <p>{info.contactInfo.phone}</p>
+              <p>{contactInfo.phone}</p>
             </div>
             <div className="test-drive-confirmation-page-labels">
               <p>
                 <strong>Date: </strong>
               </p>
-              <p>{info.formattedDate + " " + info.selectedTime}</p>
+              <p>{ formatDate(selectedDate)+ " " + selectedTime}</p>
             </div>
           </div>
           <div className="test-drive-main-actions">
-            <button onClick={()=>handleChangeComponent(0)} className="test-drive-main-button button">
+            <button
+              onClick={() => setPageNumber(0)}
+              className="test-drive-main-button button"
+            >
               Homepage
             </button>
           </div>
