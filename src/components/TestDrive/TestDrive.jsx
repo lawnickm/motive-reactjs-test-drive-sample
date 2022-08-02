@@ -31,35 +31,36 @@ export const TestDrive = () => {
         />
       );
       setHeader(<h4><strong>Contact</strong> Information</h4>);
-    } else if (pageNumber === 1) {
+    } 
+    
+    else if (pageNumber === 1) {
       setCarInfo(null);
       setComponent(
         <SelectCar setPageNumber={setPageNumber} setCarInfo={setCarInfo} />
       );
-      setHeader(
-        <h4>Schedule a flexible <strong>test drive</strong></h4>
-      );
-    } else if (pageNumber === 2) {
+      setHeader(<h4>Schedule a flexible <strong>test drive</strong></h4>);
+    } 
+    
+    else if (pageNumber === 2) {
       setComponent(
         <SelectDate setPageNumber={setPageNumber} setDateInfo={setDateInfo} />
       );
-      setHeader(
-        <h4>Select <strong>Date</strong></h4>
-      );
-    } else if (pageNumber === 3) {
+      setHeader(<h4>Select <strong>Date</strong></h4>);
+    } 
+    
+    else if (pageNumber === 3) {
       setComponent(
         <SelectTime
           setPageNumber={setPageNumber}
           setLoading={setLoading}
-          setDateInfo={setDateInfo}
           setTimeInfo={setTimeInfo}
           selectedDate={dateInfo}
         />
       );
-      setHeader(
-        <h4> Select <strong>Time</strong> </h4>
-      );
-    } else if (pageNumber === 4) {
+      setHeader(<h4> Select <strong>Time</strong> </h4>);
+    } 
+    
+    else if (pageNumber === 4) {
       setComponent(
         <Confirmation
           setPageNumber={setPageNumber}
@@ -68,10 +69,9 @@ export const TestDrive = () => {
           selectedTime={timeInfo}
         />
       );
-      setHeader(
-        <h4><strong>Congratulations!</strong> <br></br> You have scheduled a test drive!</h4>
-      );
+      setHeader(<h4><strong>Congratulations!</strong> <br></br> You have scheduled a test drive!</h4>);
     }
+
   }, [pageNumber]);
 
   return (

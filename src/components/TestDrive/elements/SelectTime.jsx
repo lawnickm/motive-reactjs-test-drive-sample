@@ -9,7 +9,6 @@ import { formatDate } from "../../../helpers/utilities";
 export const SelectTime = ({
   setPageNumber,
   setLoading,
-  setDateInfo,
   setTimeInfo,
   selectedDate,
 }) => {
