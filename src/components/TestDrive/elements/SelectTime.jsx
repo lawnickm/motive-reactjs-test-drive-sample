@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { generateHours, monthNames, dayNames } from "../../../helpers/utilities";
+import { formatDate } from "../../../helpers/utilities";
 
-export const SelectTime = ({ handleChangeComponent, selectedDate }) => {
+export const SelectTime = ({ setLoading, contactInfo, handleChangeComponent, selectedDate }) => {
   const [hours, setHours] = useState([]);
 
+  const nextPage = (item) => {
+    setLoading(true);
+    let formattedDate = formatDate(selectedDate)
+    setTimeout(() => {
+      setLoading(false);
+      handleChangeComponent(4, { info: { contactInfo, formattedDate, "selectedTime":item} })
+    }, 800);
+  }
+ 
   useEffect(() => {
     if (selectedDate) setHours(generateHours(selectedDate));
   }, [selectedDate]);
@@ -21,8 +31,8 @@ export const SelectTime = ({ handleChangeComponent, selectedDate }) => {
       <div className="test-drive-body-select-times">
         {hours.map((item, index) => (
           <div
-            onClick={() =>
-              handleChangeComponent(3, { date: selectedDate, time: item })
+            onClick={() => 
+              nextPage(item)
             }
             className="test-drive-body-dates select-times"
           >

@@ -2,12 +2,12 @@ import React from 'react';
 
 import {monthNames, dayNames, generateDates} from "../../../helpers/utilities";
 
-export const SelectDate = ({handleChangeComponent}) => {
+export const SelectDate = ({handleChangeComponent, contactInfo}) => {
     const dates = generateDates()
     return(
         <div className='test-drive-body-select-date'>
             {dates.map((date, index)=>(
-                <div onClick={() => handleChangeComponent(2,{"date":date})} className='test-drive-body-dates'>
+                <div onClick={() => handleChangeComponent(3,{"date":date, "info":contactInfo})} className='test-drive-body-dates'>
                     <p key={index}>{dayNames[date.getDay()]}</p>
                     <p key={index}>{date.getDate()}</p>
                     <p key={index}>{monthNames[date.getMonth()]}</p>

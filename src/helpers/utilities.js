@@ -33,7 +33,7 @@ export const generateDates = () => {
   var dates = [];
 
   var startDate = new Date();
-  if (startDate.getHours() > 17) startDate.setDate(startDate.getDate() + 1);   // check whether the time is greater than 5pm
+  if (startDate.getHours() >= 17) startDate.setDate(startDate.getDate() + 1);   // check whether the time is greater than 5pm
 
   dates.push(startDate);
 

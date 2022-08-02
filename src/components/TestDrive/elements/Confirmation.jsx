@@ -11,19 +11,19 @@ export const Confirmation = ({ info, handleChangeComponent }) => {
               <p>
                 <strong>Name: </strong>
               </p>
-              <p>{info.firstName + " " + info.lastName}</p>
+              <p>{info.contactInfo.firstName + " " + info.contactInfo.lastName}</p>
             </div>
             <div className="test-drive-confirmation-page-labels">
               <p>
                 <strong>Email: </strong>
               </p>
-              <p>{info.email}</p>
+              <p>{info.contactInfo.email}</p>
             </div>
             <div className="test-drive-confirmation-page-labels">
               <p>
                 <strong>Phone: </strong>
               </p>
-              <p>{info.phone}</p>
+              <p>{info.contactInfo.phone}</p>
             </div>
             <div className="test-drive-confirmation-page-labels">
               <p>

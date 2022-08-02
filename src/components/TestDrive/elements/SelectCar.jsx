@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const SelectCar = ({ setCarInfo, handleChangeComponent }) => {
+export const SelectCar = ({ setCarInfo, contactInfo, handleChangeComponent }) => {
     const [make, setMake] = useState("Volvo");
     const [model, setModel] = useState("XC90");
     const [year, setYear] = useState("2022");
@@ -10,7 +10,7 @@ export const SelectCar = ({ setCarInfo, handleChangeComponent }) => {
         e.preventDefault()
         const carInfomation = {make, model, year, trim};
         setCarInfo(carInfomation)
-        handleChangeComponent(1)
+        handleChangeComponent(2,{"info":contactInfo})
     }
 
     return (
