@@ -31,7 +31,7 @@ export const SelectTime = ({
   return (
     <div className="test-drive-body-select-date select-time">
       <div
-        onClick={() => setPageNumber(1)}
+        onClick={() => setPageNumber(2)}
         className="test-drive-body-dates active"
       >
         <p key={1}>{dayNames[selectedDate.getDay()]}</p>
